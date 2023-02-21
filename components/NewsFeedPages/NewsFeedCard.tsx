@@ -41,8 +41,13 @@ export function NewsFeedCard({ Date, nameFeed, newsFeed }: Props) {
 }
 
 const Container = styled.div`
-  width: 730px;
-  margin: 19px 18px;
+  width: 90vw;
+  max-width: 730px;
+  margin: auto;
+  margin-top: 2vh;
+  @media (max-width: 767px) {
+    width: 95vw;
+  }
 `
 
 const Header = styled.div`
@@ -61,8 +66,7 @@ const Avatar = styled.div`
 
   img {
     width: 100%;
-    height: 100%;
-    border-radius: inherit;
+    border-radius: 100%;
   }
 `
 
@@ -72,12 +76,20 @@ const HeaderLeft = styled.div`
 
 const DisplayedName = styled.div`
   font-family: poppins;
-  font-size: 22px;
+  font-size: 1.4rem;
   color: #ffff;
+
+  @media (max-width: 767px) {
+    font-size: 1rem;
+  }
 `
 
 const Bio = styled.div`
   font-size: 1rem;
+
+  @media (max-width: 767px) {
+    font-size: 0.75rem;
+  }
 `
 
 const NewsDisplay = styled.div`
@@ -87,10 +99,18 @@ const NewsDisplay = styled.div`
 `
 
 const Text = styled.p`
-  font-size: 16px;
+  font-size: 0.75;
   max-width: 683px;
   flex-wrap: wrap;
   padding: 1rem 1.5rem;
   font-family: poppins;
   color: black;
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 575px) {
+    font-size: 12px;
+    padding: 0.5rem 1rem;
+  }
 `
