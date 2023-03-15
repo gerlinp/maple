@@ -1,5 +1,5 @@
 import React from "react"
-import { NewsFeedCard } from "components/NewsFeedPages/NewsFeedCard"
+import NewsFeedPage from "components/NewsFeedPages/NewsFeedPage"
 import { dbService } from "components/db/api"
 import { useAsync } from "react-async-hook"
 
@@ -21,17 +21,7 @@ const news = (options: newsOptions) =>
   }, [options])
 
 const NewsFeed = () => {
-  return (
-    <div>
-      <NewsFeedCard Date={""} nameFeed={""} newsFeed={""} />
-      <NewsFeedCard Date={""} nameFeed={""} newsFeed={""} />
-      <NewsFeedCard Date={""} nameFeed={""} newsFeed={""} />
-      <NewsFeedCard Date={""} nameFeed={""} newsFeed={""} />
-      <NewsFeedCard Date={""} nameFeed={""} newsFeed={""} />
-      <NewsFeedCard Date={""} nameFeed={""} newsFeed={""} />
-      <NewsFeedCard Date={""} nameFeed={""} newsFeed={""} />
-    </div>
-  )
+  return <NewsFeedPage />
 }
 
 export default NewsFeed

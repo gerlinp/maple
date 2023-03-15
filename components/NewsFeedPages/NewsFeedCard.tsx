@@ -5,30 +5,38 @@ type Props = {
   Date: string
   nameFeed: string
   newsFeed: string
+  isBill: boolean
 }
 
-export function NewsFeedCard({ Date, nameFeed, newsFeed }: Props) {
+export function NewsFeedCard({ Date, nameFeed, newsFeed, isBill }: Props) {
   const date = "Mon Jan 16 2023 16:37:14 GMT-0500 (Eastern Standard Time)"
 
   return (
     <Container>
       <Header>
-        <Avatar>
-          <img loading="lazy" src="/images/newsfeeds.svg" alt="" />
-        </Avatar>
 
         <HeaderLeft>
           <DisplayedName>Bill</DisplayedName>
-          <Bio>
-            An Act creating a green bank to promote clean energy in massachsetts
-          </Bio>
-          <Timestamp
-            style={{ fontSize: "14px" }}
-            relative
-            date={date}
-            autoUpdate
-          />
+          {isBill ? <DisplayedName>Bill</DisplayedName> : null}
+
+          <Profile>
+            {isBill ? null : (
+              <Avatar>
+                <img loading="lazy" src="/images/newsfeeds.svg" alt="" />
+              </Avatar>
+            )}
+            <Bio>
+              An Act creating a green bank to promote clean energy in
+              massachsetts
+            </Bio>
+          </Profile>
         </HeaderLeft>
+        <Timestamp
+          style={{ fontSize: "14px" }}
+          relative
+          date={date}
+          autoUpdate
+        />
       </Header>
       <NewsDisplay>
         <Text>
@@ -42,7 +50,7 @@ export function NewsFeedCard({ Date, nameFeed, newsFeed }: Props) {
 
 const Container = styled.div`
   width: 90vw;
-  max-width: 730px;
+  // max-width: 900px;
   margin: auto;
   margin-top: 2vh;
   @media (max-width: 767px) {
@@ -53,6 +61,8 @@ const Container = styled.div`
 const Header = styled.div`
   padding: 19px 18px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: #fff;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -60,9 +70,10 @@ const Header = styled.div`
 `
 
 const Avatar = styled.div`
-  width: 75px;
-  height: 75px;
-  border-radius: 99999px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-right: 10px;
 
   img {
     width: 100%;
@@ -96,6 +107,11 @@ const NewsDisplay = styled.div`
   background-color: white;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+`
+
+const Profile = styled.div`
+  display: flex;
+  align-items: center;
 `
 
 const Text = styled.p`
