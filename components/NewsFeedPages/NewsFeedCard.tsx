@@ -14,9 +14,7 @@ export function NewsFeedCard({ Date, nameFeed, newsFeed, isBill }: Props) {
   return (
     <Container>
       <Header>
-
         <HeaderLeft>
-          <DisplayedName>Bill</DisplayedName>
           {isBill ? <DisplayedName>Bill</DisplayedName> : null}
 
           <Profile>
